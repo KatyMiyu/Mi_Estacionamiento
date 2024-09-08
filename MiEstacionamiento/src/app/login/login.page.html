@@ -1,13 +1,51 @@
+<!--Cabeza-->
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Mi estacionamiento</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!--Cuerpo-->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+
+
+
+
+  <ion-card style="padding: 20px; text-align: center;" >
+    <ion-icon name="person-circle-outline" style="font-size: 100px;"></ion-icon>
+    <ion-card-header>
+      <ion-card-title style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> <strong>Iniciar sesión</strong> </ion-card-title>
+
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <!--Usuario y contraseña-->
+      <ion-input labelPlacement="floating">
+        <div slot="label">Ingresa tu usuario</div>
+      </ion-input>
+
+      <ion-input labelPlacement="floating" type="password" >
+        <div slot="label">Ingresa tu contraseña</div>
+      </ion-input>  
+      
+      
+      
+    </ion-card-content>
+
+    <!--Botones-->
+
+    <div>
+      <ion-button fill="clear" style="font-family: Arial, Helvetica, sans-serif;" href="/password"><u>¿Olvidaste tu contraseña?</u></ion-button>
+      
+    </div>
+
+    <ion-button expand="block" color="tertiary" style="font-family: Arial, Helvetica, sans-serif;"><strong>Iniciar Sesión</strong></ion-button> 
+
+  </ion-card>
+
+
+
+
 </ion-content>
