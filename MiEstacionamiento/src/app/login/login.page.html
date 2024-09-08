@@ -8,10 +8,6 @@
 <!--Cuerpo-->
 <ion-content [fullscreen]="true">
   
-
-
-
-
   <ion-card style="padding: 20px; text-align: center;" >
     <ion-icon name="person-circle-outline" style="font-size: 100px;"></ion-icon>
     <ion-card-header>
@@ -19,21 +15,27 @@
 
     </ion-card-header>
   
-    <ion-card-content>
+     <ion-card-content>
 
       <!--Usuario y contraseña-->
-      <ion-input labelPlacement="floating">
+      <ion-input labelPlacement="floating"  [(ngModel)]="usuario">
         <div slot="label">Ingresa tu usuario</div>
       </ion-input>
 
-      <ion-input labelPlacement="floating" type="password" >
-        <div slot="label">Ingresa tu contraseña</div>
-      </ion-input>  
-      
-      
-      
-    </ion-card-content>
+      <ion-input labelPlacement="floating" type="password" [(ngModel)]="clave" >
+        <div slot="label">Ingresa tu contraseña</div> 
+      </ion-input>   
 
+      
+      <!--Mensaje de error-->
+      <div *ngIf="errors.length > 0">
+        <ul>
+          <li *ngFor="let error of errors" style="color: blue;">{{error}}</li>
+        </ul>
+      </div>
+  
+
+   </ion-card-content>
     <!--Botones-->
 
     <div>
@@ -41,9 +43,11 @@
       
     </div>
 
-    <ion-button expand="block" color="tertiary" style="font-family: Arial, Helvetica, sans-serif;"><strong>Iniciar Sesión</strong></ion-button> 
+     <ion-button expand="block" color="tertiary" style="font-family: Arial, Helvetica, sans-serif;" (click)="validarDatos()"><strong>Iniciar Sesión</strong></ion-button> 
 
+  
   </ion-card>
+
 
 
 
