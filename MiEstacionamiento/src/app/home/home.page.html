@@ -1,21 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Mi Estacionamiento
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
-<!--Visualiza el dato recibido desde input Usuario de Login-->
-<h1>Bienvenido, {{receivedUsername}}!</h1>
+
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card>
+      <ion-card-header>
+        <div>
+          <ion-icon name="person-circle-outline" style="font-size: 100px;"></ion-icon>
+        </div>
+        <!--Visualiza el dato recibido desde input Usuario de Login-->
+        <ion-card-title>Hola, {{receivedUsername}}!</ion-card-title>
+
+      </ion-card-header>
+    
+      <ion-card-content>
+        Bienvenido a Mi Estacionamiento, arrienda, busca y reserva fácilmente desde tu móvil, con pagos seguros en línea. ¡Simplifica tu experiencia de estacionamiento!
+      </ion-card-content>
+    
+      <ion-button fill="clear">Vamos a vivir la experiencia</ion-button>
+    </ion-card>
+    
   </div>
 </ion-content>
