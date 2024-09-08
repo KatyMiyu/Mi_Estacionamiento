@@ -23,11 +23,11 @@ export class LoginPage implements OnInit {
     }
 
     if (this.clave.trim() === ''){
-      this.errors.push('Clave es obligatoria');
+      this.errors.push('Contraseña es obligatoria');
     }
 
     if (this.clave.length < 6){
-      this.errors.push('La clave debe contener más de 6 carácteres')
+      this.errors.push('La contrasaeña debe contener más de 6 carácteres')
     }
 
     //Si no hay errores, debe navegar al home
