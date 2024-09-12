@@ -42,6 +42,17 @@ export class LoginPage implements OnInit {
     }
 
 
+    //Función de navegación a password desde el link "¿Olvidaste tu contraseña?"
+    navigateToPassword() {
+      this.router.navigateByUrl('password');
+    };
+    //Función de navegación a home desde el botón "Iniciar Sesión"
+    //navigateToHome() {
+      //this.router.navigateByUrl('home');
+    //}
+
+
+
 
     ngOnInit() {
     }
