@@ -25,6 +25,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 
+
+
 @NgModule({
   // Declara el componente raíz de la aplicación.
   declarations: [AppComponent], 

@@ -1,6 +1,7 @@
-import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router'; //libreria que permite enviar datos enviados por paginas
+import { Router, NavigationExtras } from '@angular/router'; //Librería que permite enviar datos enviados por páginas
+//Importar Auth
+import { AuthService } from '../servicios/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,57 +9,35 @@ import { Router, NavigationExtras } from '@angular/router'; //libreria que permi
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  usuario: string =''; //La variable de usuario
-  clave: string=''; // La variable de password
-  errors: string[] = []; //array para almacenar mensajes de error
-  constructor(private router: Router) {}
-
-  //Validar el usuario y contraseña antes de navegar a home
-  validarDatos() {
-    this.errors = [];
-
-    //Condiciones de validacion
-    if (this.usuario.trim() ===''){
-      this.errors.push('Usuario es obligatorio');
-    }
-
-    if (this.clave.trim() === ''){
-      this.errors.push('Contraseña es obligatoria');
-    }
-
-    if (this.clave.length < 6){
-      this.errors.push('La contrasaeña debe contener más de 6 carácteres')
-    }
-
-    //Si no hay errores, debe navegar al home
-    if (this.errors.length === 0) {
+  usuario: string = ''; // La variable de usuario
+  clave: string = ''; // La variable de password
+  errors: string[] = []; // Array para almacenar mensajes de error
+  
+  constructor(private router: Router, private authService: AuthService) {} //Inicializar servicio auth
+ 
+ // Llama al método de autenticación con correo y contraseña
+ async login() {
+  if (this.usuario && this.clave) {
+    const isAuthenticated = await this.authService.signIn(this.usuario, this.clave);
+    
+    // Solo navegamos si la autenticación fue exitosa
+    if (isAuthenticated) {
       const navigationExtras: NavigationExtras = {
         queryParams: {
-          user: this.usuario, //envio dato del input usuario
+          user: this.usuario, // Envío dato del input Usuario
         },
       };
-      this.router.navigate(['home'], navigationExtras); //Navega a home y envia el dato del input al Usuario
+      this.router.navigate(['home'], navigationExtras); // Navega a Home y envía el dato del input Usuario
     }
-    }
-
-
-    //Función de navegación a password desde el link "¿Olvidaste tu contraseña?"
-    navigateToPassword() {
-      this.router.navigateByUrl('password');
-    };
-    //Función de navegación a home desde el botón "Iniciar Sesión"
-    //navigateToHome() {
-      //this.router.navigateByUrl('home');
-    //}
-
-
-
-
-    ngOnInit() {
-    }
-
+  } else {
+    alert('Por favor, ingresa tu correo y contraseña.');
+  }
+  }
+ 
+  ngOnInit() {
   }
 
+}
 
 
 

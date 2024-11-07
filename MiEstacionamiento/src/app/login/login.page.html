@@ -1,55 +1,29 @@
-<!--Cabeza-->
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Mi estacionamiento</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-card>
+  <img alt="Silhouette of mountains" src="assets/mapa.png" />
+  <ion-card-header>
+    <ion-card-title style="text-align: center;">Iniciar sesión</ion-card-title>
+  </ion-card-header>
 
-<!--Cuerpo-->
-<ion-content [fullscreen]="true">
+  <ion-card-content>
+    <form (submit)="login()">
+      <!-- Insertar un input desde https://ionicframework.com/docs/api/input-->
+    <ion-item> <!--Input de Texto simple y almacena el dato ingresado en la variable ngModel usuario-->
+      <ion-input label="Floating label" labelPlacement="floating" label="Correo" name="email" type="email" [(ngModel)]="usuario" required></ion-input>
+    </ion-item>
   
-  <ion-card style="padding: 20px; text-align: center;" >
-    <ion-icon name="person-circle-outline" style="font-size: 100px;"></ion-icon>
-    <ion-card-header>
-      <ion-card-title style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> <strong>Iniciar sesión</strong> </ion-card-title>
-
-    </ion-card-header>
+    <ion-item><!--Input de Password y almacena el dato ingresado en la variable ngModel clave-->
+      <ion-input label="Floating label" labelPlacement="floating" label="Clave" name="Clave" type="password" value="password" [(ngModel)]="clave" required></ion-input>
+    </ion-item>
   
-     <ion-card-content>
-
-      <!--Usuario y contraseña-->
-      <ion-input labelPlacement="floating"  [(ngModel)]="usuario">
-        <div slot="label">Ingresa tu usuario</div>
-      </ion-input>
-
-      <ion-input labelPlacement="floating" type="password" [(ngModel)]="clave" >
-        <div slot="label">Ingresa tu contraseña</div> 
-      </ion-input>   
-
-      
-      <!--Mensaje de error-->
-      <div *ngIf="errors.length > 0">
-        <ul>
-          <li *ngFor="let error of errors" style="color: rgb(255, 0, 0);">{{error}}</li>
-        </ul>
-      </div>
-  
-
-   </ion-card-content>
-    <!--Botones-->
-
-    <div>
-      <ion-button fill="clear" style="font-family: Arial, Helvetica, sans-serif;" expand="full" (click)="navigateToPassword()"><u>¿Olvidaste tu contraseña?</u></ion-button>
-      
+     <!-- Mensajes de error -->
+     <div *ngIf="errors.length > 0">
+      <ul>
+        <li *ngFor="let error of errors" style="color: rgb(0, 4, 255);">{{ error }}</li>
+      </ul>
     </div>
-
-     <ion-button expand="block" color="tertiary" style="font-family: Arial, Helvetica, sans-serif;" (click)="validarDatos()"><strong>Iniciar Sesión</strong></ion-button> 
-
   
-  </ion-card>
-
-
-
-
-
-</ion-content>
+    <!--Botón de acceso y validador de datos-->
+    <ion-button expand="block" type="submit" color="tertiary">Iniciar Sesión</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>
