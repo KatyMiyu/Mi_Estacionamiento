@@ -6,14 +6,28 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
+// Importa los componentes que usas en el home.page.html
+import { ExperienciaLaboralComponent } from '../componentes/experiencia-laboral/experiencia-laboral.component';
+import { CertificacionesComponent } from '../componentes/certificaciones/certificaciones.component';
+import { MisDatosComponent } from '../componentes/mis-datos/mis-datos.component';
+
+//Importar crubfirebase
+import { UsuariosfirebaseComponent } from '../componentes/usuariosfirebase/usuariosfirebase.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,
+    // Declara aquí los componentes utilizados
+    ExperienciaLaboralComponent,
+    CertificacionesComponent,
+    MisDatosComponent,
+    UsuariosfirebaseComponent,
+  ]
 })
 export class HomePageModule {}
+

@@ -1,0 +1,33 @@
+<h2>Datos de pago</h2>
+<form>
+  <label>Nombre de la cuenta</label>
+  <input type="text" name="nombreCuenta"> <br>
+  <br>
+  <label>Fecha de deposito</label>
+  <input type="date" name="fechaObtencion"> <br>
+  <br>
+  <label>Tarifa $/min</label>
+  <input type="number" name="tarifa">
+
+  <br>
+
+  <ion-select label="Banco" placeholder="Banco">
+    <ion-select-option value="BCI/MACH">BCI/MACH</ion-select-option>
+    <ion-select-option value="ESTADO">BANCO ESTADO</ion-select-option>
+    <ion-select-option value="FALABELLA">BANCO FALABELLA</ion-select-option>
+    <ion-select-option value="CHILE">BANCO CHILE-EDWARDS-CREDICHILE</ion-select-option>
+    <ion-select-option value="ITAU">BANCO ITAU</ion-select-option>
+    <ion-select-option value="SCOTIABANK">SCOTIABANK</ion-select-option>
+    <ion-select-option value="MERCADOPAGO">MERCADOPAGO</ion-select-option>
+  </ion-select>
+  
+  <br>
+  
+  <ion-select label="Tipo de cuenta" placeholder="Tipo de cuenta">
+    <ion-select-option value="vista">Vista</ion-select-option>
+    <ion-select-option value="corriente">Corriente</ion-select-option>
+    <ion-select-option value="ahorro">Ahorro</ion-select-option>
+  </ion-select>
+  
+  <br>
+</form>

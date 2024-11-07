@@ -9,6 +9,9 @@ import { ActivatedRoute } from '@angular/router'; //Librería que permite recibi
 })
 export class HomePage implements OnInit{
 receivedUsername!: string; //variable que almacena localmente el dato enviado desde el login 
+
+selectedSegment: string = 'mis-datos';//Inicializa el segmento que desea mostrar primero 
+
 //Funcion que recibe el dato enviado de otra pagina html
   constructor(private router: ActivatedRoute) {}
 
