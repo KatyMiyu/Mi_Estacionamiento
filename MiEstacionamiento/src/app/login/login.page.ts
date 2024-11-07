@@ -33,6 +33,11 @@ export class LoginPage implements OnInit {
     alert('Por favor, ingresa tu correo y contraseña.');
   }
   }
+
+  //Función de navegación a password desde el link "¿Olvidaste tu contraseña?"
+  navigateToPassword() {
+    this.router.navigateByUrl('password');
+  };
  
   ngOnInit() {
   }

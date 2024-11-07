@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>QR Scanner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="scanQrCode()">Escanear Código QR</ion-button>
+  
+  <div *ngIf="scannedData">
+    <h2>Resultado del Escaneo:</h2>
+    <p>{{ scannedData }}</p>
+    <ion-button (click)="descargarQR()">Descargar QR</ion-button>
+  </div>
+
+  <!-- Generación de códigos QR -->
+<ion-item>
+  <ion-label position="floating">Enter text to generate QR code</ion-label>
+  <ion-input [(ngModel)]="qrCodeData"></ion-input>
+</ion-item>
+<ion-button expand="full" (click)="generateQRCode()">Generate QR Code</ion-button>
+
+<div *ngIf="generatedQRCode">
+  <img [src]="generatedQRCode" alt="Generated QR Code">
+</div>
+</ion-content>

@@ -14,6 +14,13 @@ import { MisDatosComponent } from '../componentes/mis-datos/mis-datos.component'
 //Importar crubfirebase
 import { UsuariosfirebaseComponent } from '../componentes/usuariosfirebase/usuariosfirebase.component';
 
+//Importar ApiRest
+import { ApiRestComponent } from '../componentes/api-rest/api-rest.component';
+
+//Importar QR
+import { QrScannerComponent } from '../componentes/qr-scanner/qr-scanner.component';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,6 +34,8 @@ import { UsuariosfirebaseComponent } from '../componentes/usuariosfirebase/usuar
     CertificacionesComponent,
     MisDatosComponent,
     UsuariosfirebaseComponent,
+    ApiRestComponent,
+    QrScannerComponent
   ]
 })
 export class HomePageModule {}

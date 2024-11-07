@@ -10,6 +10,7 @@ import { Router, NavigationExtras } from '@angular/router'; //libreria que permi
 export class PasswordPage implements OnInit {
 
   name: string ='';//variable nombre usuario
+  email: string = '';//variable para correo
   password: string =''//variable para la contraseña
   password2: string =''//variable para la contraseña
   errors: string[] = [];//array para almacenar el error

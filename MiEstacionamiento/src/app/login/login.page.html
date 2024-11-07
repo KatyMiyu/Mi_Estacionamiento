@@ -1,29 +1,40 @@
-<ion-card>
-  <img alt="Silhouette of mountains" src="assets/mapa.png" />
-  <ion-card-header>
-    <ion-card-title style="text-align: center;">Iniciar sesión</ion-card-title>
-  </ion-card-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card style="padding: 5%; text-align: center;">
+    <img alt="Silhouette of mountains" src="assets/mapa.png" />
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Iniciar sesión</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content >
+      <form (submit)="login()">
+        <!-- Insertar un input desde https://ionicframework.com/docs/api/input-->
+      <ion-item> <!--Input de Texto simple y almacena el dato ingresado en la variable ngModel usuario-->
+        <ion-input label="Floating label" labelPlacement="floating" label="Correo" name="email" type="email" [(ngModel)]="usuario" required></ion-input>
+      </ion-item>
+    
+      <ion-item><!--Input de Password y almacena el dato ingresado en la variable ngModel clave-->
+        <ion-input label="Floating label" labelPlacement="floating" label="Clave" name="Clave" type="password" value="password" [(ngModel)]="clave" required></ion-input>
+      </ion-item>
+      <br>
+      
+    
+       <!-- Mensajes de error -->
+       <div *ngIf="errors.length > 0">
+        <ul>
+          <li *ngFor="let error of errors" style="color: rgb(0, 4, 255);">{{ error }}</li>
+        </ul>
+      </div>
+      <!--Boton olvidaste tu contraseña-->
+      <div>
+        <ion-button fill="clear" style="font-family: Arial, Helvetica, sans-serif;" expand="full" (click)="navigateToPassword()"><u>¿Olvidaste tu contraseña?</u></ion-button>
+      </div>
+    
+      <!--Botón de acceso y validador de datos-->
+      <ion-button expand="block" type="submit" color="tertiary">Iniciar Sesión</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 
-  <ion-card-content>
-    <form (submit)="login()">
-      <!-- Insertar un input desde https://ionicframework.com/docs/api/input-->
-    <ion-item> <!--Input de Texto simple y almacena el dato ingresado en la variable ngModel usuario-->
-      <ion-input label="Floating label" labelPlacement="floating" label="Correo" name="email" type="email" [(ngModel)]="usuario" required></ion-input>
-    </ion-item>
-  
-    <ion-item><!--Input de Password y almacena el dato ingresado en la variable ngModel clave-->
-      <ion-input label="Floating label" labelPlacement="floating" label="Clave" name="Clave" type="password" value="password" [(ngModel)]="clave" required></ion-input>
-    </ion-item>
-  
-     <!-- Mensajes de error -->
-     <div *ngIf="errors.length > 0">
-      <ul>
-        <li *ngFor="let error of errors" style="color: rgb(0, 4, 255);">{{ error }}</li>
-      </ul>
-    </div>
-  
-    <!--Botón de acceso y validador de datos-->
-    <ion-button expand="block" type="submit" color="tertiary">Iniciar Sesión</ion-button>
-    </form>
-  </ion-card-content>
-</ion-card>
+</ion-content>
+
+

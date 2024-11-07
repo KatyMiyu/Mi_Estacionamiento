@@ -22,6 +22,9 @@ import { CrudfirebaseService } from './servicios/crudfirebase.service';
 // Importa el módulo de autenticación de Firebase para habilitar funciones de autenticación en la aplicación.
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'; 
 
+//Importa el modulos HttpClient de la API REST
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -37,7 +40,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     IonicModule.forRoot(), // Configura y habilita Ionic.
     AppRoutingModule, // Módulo de enrutamiento de la aplicación.
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicializar Firebase con la configuración del entorno.
-    AngularFireAuthModule // Habilitar el módulo de autenticación de Firebase.
+    AngularFireAuthModule, // Habilitar el módulo de autenticación de Firebase.
+    HttpClientModule, // Módulo para realizar solicitudes HTTP a la API REST.
   ], 
 
   // Proveedores de servicios y estrategias de enrutamiento.
