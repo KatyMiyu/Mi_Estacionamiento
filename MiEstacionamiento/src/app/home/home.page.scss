@@ -25,3 +25,14 @@
 #container a {
   text-decoration: none;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.center-icon {
+  font-size: 100px;
+}

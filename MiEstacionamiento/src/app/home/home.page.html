@@ -1,107 +1,94 @@
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-header >
+  <ion-toolbar>
+    <ion-title style="text-align: center;">
+      JDK
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="/login" style="border-radius:5px; " color="tertiary"> <strong>Cerrar Sesión</strong> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title style="text-align: center;">
-        JDK
-      </ion-title>
-      <ion-buttons slot="end">
-        <ion-button href="/login" style="border-radius:5px; " color="tertiary"> <strong>Cerrar Sesión</strong> </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-   
+<ion-content [fullscreen]="true" class="ion-padding" style="padding: 20px;">
+  <div class="container">
+    <ion-icon name="person-circle-outline" style="font-size: 100px;" class="center-icon"></ion-icon>
+  </div>
+  <div>
+    <ion-title style="text-align: center;">Hola, {{receivedUsername}}!</ion-title>
+  </div>
+  <div>
+    <p>Bienvenido a Mi Estacionamiento.</p>
+    <p>Arrienda, busca y reserva fácilmente desde tu móvil, con pagos seguros en línea. ¡Simplifica tu experiencia de estacionamiento!</p>
+  </div>
+
+  <!--Ingrasar componentes-->
+  <ion-segment [(ngModel)]="selectedSegment">
+
+    <ion-segment-button value="mis-datos">
+      <ion-label>Contacto</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="experiencia-laboral">
+      <ion-label>Estacionamiento</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="certificaciones">
+      <ion-label>Pago</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="usuariosfirebase">
+      <ion-label>Añadir Usuario</ion-label>
+    </ion-segment-button>
+
+
+    <!--Segmento ApiRest-->
+    <ion-segment-button value="api-rest">
+      <ion-label>API REST (.Json)</ion-label>
+    </ion-segment-button>
+
+    <!--Segmento QR-->
+    <ion-segment-button value="qr-scanner">
+      <ion-label>Evalúanos!</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
   
-  </ion-header>
-  
-  <ion-content [fullscreen]="true">
-  
-    <div id="container">
-      <ion-card>
-        <ion-card-header>
-          <div>
-            <ion-icon name="person-circle-outline" style="font-size: 100px;"></ion-icon>
-          </div>
-          <!--Visualiza el dato recibido desde input Usuario de Login-->
-          <ion-card-title>Hola, {{receivedUsername}}!</ion-card-title>
-  
-        </ion-card-header>
-      
-        <ion-card-content>
-          <p>Bienvenido a Mi Estacionamiento.</p>
-          <p>Arrienda, busca y reserva fácilmente desde tu móvil, con pagos seguros en línea. ¡Simplifica tu experiencia de estacionamiento!</p>
-        </ion-card-content>
-  
-        
-    
-    <!--Ingrasar componentes-->
-      <ion-segment [(ngModel)]="selectedSegment">
-        <ion-segment-button value="mis-datos">
-          <ion-label>Contacto</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="experiencia-laboral">
-          <ion-label>Estacionamiento</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="certificaciones">
-          <ion-label>Pago</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="usuariosfirebase">
-          <ion-label>Crud usuarios</ion-label>
-        </ion-segment-button>
-  
-        <!--Segmento ApiRest-->
-        <ion-segment-button value="api-rest">
-          <ion-label>API REST (.Json)</ion-label>
-        </ion-segment-button>
-  
-        <!--Segmento QR-->
-        <ion-segment-button value="qr-scanner">
-          <ion-label>QR Scanner</ion-label>
-        </ion-segment-button>
-  
-  
-  
-      </ion-segment>
-  
-  
-      
-    <!-- Mostrar componentes según el valor seleccionado en el segmento -->
-      <ng-container *ngIf="selectedSegment === 'mis-datos'">
-        <app-mis-datos></app-mis-datos>
-      </ng-container>
-      <ng-container *ngIf="selectedSegment === 'experiencia-laboral'">
-        <app-experiencia-laboral></app-experiencia-laboral>
-      </ng-container>
-      <ng-container *ngIf="selectedSegment === 'certificaciones'">
-        <app-certificaciones></app-certificaciones>
-      </ng-container>
-      <ng-container *ngIf="selectedSegment === 'usuariosfirebase'">
-        <app-usuariosfirebase></app-usuariosfirebase>
-      </ng-container>
-  
-      <!--Api rest-->
-      <ng-container *ngIf="selectedSegment === 'api-rest'">
-        <app-api-rest></app-api-rest>
-      </ng-container>
-      <!--QR-->
-      <ng-container *ngIf="selectedSegment === 'qr-scanner'">
-        <app-qr-scanner></app-qr-scanner>
-      </ng-container>
-  
-  
-      </ion-card>
-      
-    </div>
-  
-  
-    
-      
-  
-  
-  </ion-content>
+  <!-- Mostrar componentes según el valor seleccionado en el segmento -->
+  <ng-container *ngIf="selectedSegment === 'mis-datos'">
+    <app-mis-datos></app-mis-datos>
+  </ng-container>
+  <ng-container *ngIf="selectedSegment === 'experiencia-laboral'">
+    <app-experiencia-laboral></app-experiencia-laboral>
+  </ng-container>
+  <ng-container *ngIf="selectedSegment === 'certificaciones'">
+    <app-certificaciones></app-certificaciones>
+  </ng-container>
+  <ng-container *ngIf="selectedSegment === 'usuariosfirebase'">
+    <app-usuariosfirebase></app-usuariosfirebase>
+  </ng-container>
+
+  <!--Api rest-->
+  <ng-container *ngIf="selectedSegment === 'api-rest'">
+    <app-api-rest></app-api-rest>
+  </ng-container>
+  <!--QR-->
+  <ng-container *ngIf="selectedSegment === 'qr-scanner'">
+    <app-qr-scanner></app-qr-scanner>
+  </ng-container>
+
+
+
+
+
+
 
 
 
 </ion-content>
+
+
+
 
 
 

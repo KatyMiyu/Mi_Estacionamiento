@@ -32,17 +32,7 @@ export class QrScannerComponent  {
       }
     }
   }
-  descargarQR() {
-    if (this.scannedData) {
-      const blob = new Blob([this.scannedData], { type: 'text/plain' });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'qr-code.txt';
-      a.click();
-      window.URL.revokeObjectURL(url);
-    }
-  }
+
   // Función para validar si el contenido escaneado es una URL válida
   isValidUrl(url: string): boolean {
     const urlPattern = new RegExp('^(https?:\\/\\/)?'+ // protocolo
@@ -53,6 +43,7 @@ export class QrScannerComponent  {
       '(\\#[-a-z\\d_]*)?$','i'); // fragmento de anclaje
     return !!urlPattern.test(url);
   }
+
   // Función para generar código QR
   generateQRCode() {
     QRCode.toDataURL(this.qrCodeData, { errorCorrectionLevel: 'H' })
@@ -62,6 +53,16 @@ export class QrScannerComponent  {
       .catch((err: any) => {
         console.error(err);
       });
+  }
+
+  // Función para descargar QR en PNG
+  downloadQRCode() {
+    if (this.generatedQRCode) {
+      const link = document.createElement('a');
+      link.href = this.generatedQRCode;
+      link.download = 'QRCode.png';
+      link.click();
+    }
   }
 }
 
