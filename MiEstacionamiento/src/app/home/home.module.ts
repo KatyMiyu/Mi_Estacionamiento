@@ -12,7 +12,7 @@ import { CertificacionesComponent } from '../componentes/certificaciones/certifi
 import { MisDatosComponent } from '../componentes/mis-datos/mis-datos.component';
 
 //Importar crubfirebase
-import { UsuariosfirebaseComponent } from '../componentes/usuariosfirebase/usuariosfirebase.component';
+//import { UsuariosfirebaseComponent } from '../componentes/usuariosfirebase/usuariosfirebase.component';
 
 //Importar ApiRest
 import { ApiRestComponent } from '../componentes/api-rest/api-rest.component';
@@ -33,7 +33,7 @@ import { QrScannerComponent } from '../componentes/qr-scanner/qr-scanner.compone
     ExperienciaLaboralComponent,
     CertificacionesComponent,
     MisDatosComponent,
-    UsuariosfirebaseComponent,
+    //UsuariosfirebaseComponent,
     ApiRestComponent,
     QrScannerComponent
   ]

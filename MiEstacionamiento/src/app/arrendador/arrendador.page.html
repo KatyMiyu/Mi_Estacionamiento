@@ -1,0 +1,21 @@
+<!-- arrendador.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Comentarios de Arrendadores
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let comentario of comentarios">
+      <ion-label>
+        <h2>{{ comentario.usuario }}</h2>
+        <p>{{ comentario.comentario }}</p>
+        <p><strong>Calificación:</strong> {{ comentario.calificacion }} ⭐</p>
+        <p><strong>Estacionamiento:</strong> {{ comentario.estacionamiento }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

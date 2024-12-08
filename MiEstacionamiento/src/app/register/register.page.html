@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <!--Boton para regresar a la pagina de registro-->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+
+    <!-- <ion-title style="text-align: center;">Recuperar contraseña</ion-title> -->
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- Controlador de Segmento para mostrar el componente -->
+  <ion-segment [(ngModel)]="selectedSegment">
+    <ion-segment-button value="usuariosfirebase">
+      <ion-label>Registrate aquí</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Mostrar el componente basado en la selección del segmento -->
+  <ng-container *ngIf="selectedSegment === 'usuariosfirebase'">
+    <app-usuariosfirebase></app-usuariosfirebase>
+  </ng-container>
+</ion-content>
+
+
+

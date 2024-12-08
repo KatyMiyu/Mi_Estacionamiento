@@ -21,6 +21,8 @@
     <p>Arrienda, busca y reserva fácilmente desde tu móvil, con pagos seguros en línea. ¡Simplifica tu experiencia de estacionamiento!</p>
   </div>
 
+  
+
   <!--Ingrasar componentes-->
   <ion-segment [(ngModel)]="selectedSegment">
 
@@ -36,9 +38,9 @@
       <ion-label>Pago</ion-label>
     </ion-segment-button>
 
-    <ion-segment-button value="usuariosfirebase">
+    <!-- <ion-segment-button value="usuariosfirebase">
       <ion-label>Añadir Usuario</ion-label>
-    </ion-segment-button>
+    </ion-segment-button> -->
 
 
     <!--Segmento ApiRest-->
@@ -64,9 +66,11 @@
   <ng-container *ngIf="selectedSegment === 'certificaciones'">
     <app-certificaciones></app-certificaciones>
   </ng-container>
-  <ng-container *ngIf="selectedSegment === 'usuariosfirebase'">
+
+  <!--Usuario-->
+  <!-- <ng-container *ngIf="selectedSegment === 'usuariosfirebase'">
     <app-usuariosfirebase></app-usuariosfirebase>
-  </ng-container>
+  </ng-container> -->
 
   <!--Api rest-->
   <ng-container *ngIf="selectedSegment === 'api-rest'">

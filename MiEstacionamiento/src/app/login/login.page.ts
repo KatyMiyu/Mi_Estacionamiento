@@ -13,6 +13,7 @@ export class LoginPage implements OnInit {
   clave: string = ''; // La variable de password
   errors: string[] = []; // Array para almacenar mensajes de error
   
+  
   constructor(private router: Router, private authService: AuthService) {} //Inicializar servicio auth
  
  // Llama al método de autenticación con correo y contraseña
@@ -38,6 +39,11 @@ export class LoginPage implements OnInit {
   navigateToPassword() {
     this.router.navigateByUrl('password');
   };
+
+  // Método para navegar a la página de registro
+  navigateToRegister() {
+    this.router.navigateByUrl('register');
+  }
  
   ngOnInit() {
   }

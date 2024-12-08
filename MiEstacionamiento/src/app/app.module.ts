@@ -25,7 +25,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 //Importa el modulos HttpClient de la API REST
 import { HttpClientModule } from '@angular/common/http';
 
-
+import { ApiRestService } from './servicios/api-rest.service';
 
 
 
@@ -46,7 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
 
   // Proveedores de servicios y estrategias de enrutamiento.
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, // Configura la estrategia de reutilización de rutas de Ionic.
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }, // Configura la estrategia de reutilización de rutas de Ionic.
+    ApiRestService,
     provideAnimationsAsync(), // Proveedor para animaciones asíncronas.
     CrudfirebaseService // Proveedor del servicio CRUD para Firebase.
   ], 

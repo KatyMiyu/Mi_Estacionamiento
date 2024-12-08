@@ -1,0 +1,39 @@
+{
+  "comentarios": [
+    {
+      "id": 1,
+      "usuario": "Katy",
+      "estacionamiento": "Centro",
+      "comentario": "El lugar es seguro y siempre hay espacio disponible.",
+      "calificacion": 5
+    },
+    {
+      "id": 2,
+      "usuario": "Juan",
+      "estacionamiento": "Sur",
+      "comentario": "Es económico, pero el acceso es un poco complicado.",
+      "calificacion": 3
+    },
+    {
+      "id": 3,
+      "usuario": "Ana",
+      "estacionamiento": "Centro",
+      "comentario": "Me gusta porque está cerca de mi trabajo.",
+      "calificacion": 4
+    },
+    {
+      "id": 4,
+      "usuario": "Carlos",
+      "estacionamiento": "Norte",
+      "comentario": "Muy caro para el servicio que ofrecen.",
+      "calificacion": 2
+    },
+    {
+      "id": 5,
+      "usuario": "María",
+      "estacionamiento": "Este",
+      "comentario": "Perfecto para dejar el auto todo el día, excelente atención.",
+      "calificacion": 5
+    }
+  ]
+}

@@ -35,6 +35,20 @@ const routes: Routes = [
     path: 'password',
     loadChildren: () => import('./password/password.module').then( m => m.PasswordPageModule)
   },
+  
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'arrendatario',
+    loadChildren: () => import('./arrendatario/arrendatario.module').then( m => m.ArrendatarioPageModule)
+  },
+  {
+    path: 'arrendador',
+    loadChildren: () => import('./arrendador/arrendador.module').then( m => m.ArrendadorPageModule)
+  },
+  
   {
     path: 'pagina404',
     loadChildren: () => import('./pagina404/pagina404.module').then( m => m.Pagina404PageModule)
@@ -43,6 +57,7 @@ const routes: Routes = [
     path:'**',
     component:Pagina404Page
   },
+
 
 
 ];

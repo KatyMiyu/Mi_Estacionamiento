@@ -1,57 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Comentarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <!-- Reemplazo de mat-toolbar por ion-header y ion-toolbar -->
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Lista de Usuarios</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Formulario de nuevo comentario -->
+  <ion-item>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input [(ngModel)]="newComentario.usuario"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Estacionamiento</ion-label>
+    <ion-input [(ngModel)]="newComentario.estacionamiento"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Comentario</ion-label>
+    <ion-input [(ngModel)]="newComentario.comentario"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Calificación</ion-label>
+    <ion-input [(ngModel)]="newComentario.calificacion" type="number"></ion-input>
+  </ion-item>
 
-  <!-- Formulario de usuarios -->
-  <form (ngSubmit)="editingUser ? saveUser() : addUser()">
-    <!-- Reemplazo de mat-form-field por ion-item e ion-input -->
-    <ion-item>
-      <ion-label position="floating">Id</ion-label>
-      <ion-input [(ngModel)]="newUser.id" name="id" required></ion-input>
-    </ion-item>
+  <ion-button expand="full" (click)="addComentario()">Agregar Comentario</ion-button>
 
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input [(ngModel)]="newUser.name" name="name" required></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Correo</ion-label>
-      <ion-input [(ngModel)]="newUser.email" name="email" required></ion-input>
-    </ion-item>
-
-    <!-- Reemplazo de mat-button por ion-button -->
-    <ion-button expand="block" color="tertiary" type="submit">
-      {{ editingUser ? 'Guardar Cambios' : 'Agregar Nuevo Usuario' }}
-    </ion-button>
-  </form>
-
-  <br>
-
-  <!-- Reemplazo de mat-list por ion-list -->
   <ion-list>
-    <ion-item *ngFor="let user of users">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>{{ user.name }}</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-          <p>ID: {{ user.id }}</p>
-          <p>Correo: {{ user.email }}</p>
-        </ion-card-content>
-
-        <ion-button expand="full" color="primary" (click)="updateUser(user)">
-          Actualizar
-        </ion-button>
-        <ion-button expand="full" color="danger" (click)="deleteUser(user.id)">
-          Eliminar
-        </ion-button>
-      </ion-card>
+    <ion-item *ngFor="let comentario of comentarios">
+      <ion-label>
+        <h2>{{ comentario.usuario }}</h2>
+        <p>{{ comentario.comentario }}</p>
+        <p>Estacionamiento: {{ comentario.estacionamiento }} | Calificación: {{ comentario.calificacion }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="updateComentario(comentario)">Editar</ion-button>
+        <ion-button color="danger" (click)="deleteComentario(comentario.id)">Eliminar</ion-button>
+      </ion-buttons>
     </ion-item>
   </ion-list>
 </ion-content>
