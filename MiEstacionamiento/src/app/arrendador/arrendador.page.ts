@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiRestService } from '../servicios/api-rest.service';
+import { ActivatedRoute } from '@angular/router'; //Librería que permite recibir datos enviados por páginas
+import { DataService } from '../servicios/api-rest.service';
 
 @Component({
   selector: 'app-arrendador',
@@ -7,12 +8,16 @@ import { ApiRestService } from '../servicios/api-rest.service';
   styleUrls: ['./arrendador.page.scss'],
 })
 export class ArrendadorPage implements OnInit {
-  comentarios: any[] = [];
+  comentarios: any[] = []; // Array para almacenar los comentarios
+  
+  selectedSegment: string = 'mis-datos';//Inicializa el segmento que desea mostrar primero 
 
-  constructor(private apiRestService: ApiRestService) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
     // Obtener los comentarios desde el servicio
-    this.comentarios = this.apiRestService.getLocalComentarios();
+    this.dataService.getComentarios().subscribe((data) => {
+      this.comentarios = data; // Asignar los datos recibidos a comentarios
+    });
   }
 }

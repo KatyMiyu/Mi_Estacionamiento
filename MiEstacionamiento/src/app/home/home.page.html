@@ -1,98 +1,51 @@
-<ion-header >
+<ion-header>
   <ion-toolbar>
     <ion-title style="text-align: center;">
       JDK
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button href="/login" style="border-radius:5px; " color="tertiary"> <strong>Cerrar Sesión</strong> </ion-button>
+      <ion-button href="/login" style="border-radius:5px;" color="tertiary"> 
+        <strong>Cerrar Sesión</strong> 
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding" style="padding: 20px;">
   <div class="container">
-    <ion-icon name="person-circle-outline" style="font-size: 100px;" class="center-icon"></ion-icon>
+    <img src="assets/001.png" alt="">
   </div>
   <div>
-    <ion-title style="text-align: center;">Hola, {{receivedUsername}}!</ion-title>
+    <ion-title style="text-align: center; color: #7044ff; font-size: 25px;">Hola, {{receivedUsername}}!</ion-title>
   </div>
+  <div style="text-align: center; margin: 10px 0;">
+    <p style="font-size: 1.1rem; color: #555;">Bienvenido a <strong>Mi Estacionamiento</strong>.</p>
+    <p style="font-size: 1rem; color: #777;">
+      Arrienda, busca y reserva fácilmente desde tu móvil, con pagos seguros en línea. 
+      <br><strong>¡Simplifica tu experiencia de estacionamiento!</strong>
+    </p>
+  </div>
+
+  <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
+
+  <!-- Texto antes de los botones -->
+  <div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+    <h1 style="font-weight: bold; color: #7452e4;">¿Qué rol deseas desempeñar?</h1>
+  </div>
+
+  <!-- Botones estilizados -->
+  <div style="margin-bottom: 15px;">
+    <ion-button size="large" color="tertiary" expand="block" style="border-radius: 10px; box-shadow: 0px 4px 6px rgba(0,0,0,0.2);" routerLink="/arrendador">
+      <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+      Arrendador
+    </ion-button>
+  </div>
+  <hr style="border: none; border-top: 1px solid #ddd; margin: 15px 0;">
+
   <div>
-    <p>Bienvenido a Mi Estacionamiento.</p>
-    <p>Arrienda, busca y reserva fácilmente desde tu móvil, con pagos seguros en línea. ¡Simplifica tu experiencia de estacionamiento!</p>
+    <ion-button size="large" color="tertiary" expand="block" style="border-radius: 10px; box-shadow: 0px 4px 6px rgba(0,0,0,0.2);" routerLink="/arrendatario">
+      <ion-icon slot="start" name="car-sport-outline"></ion-icon>
+      Arrendatario
+    </ion-button>
   </div>
-
-  
-
-  <!--Ingrasar componentes-->
-  <ion-segment [(ngModel)]="selectedSegment">
-
-    <ion-segment-button value="mis-datos">
-      <ion-label>Contacto</ion-label>
-    </ion-segment-button>
-
-    <ion-segment-button value="experiencia-laboral">
-      <ion-label>Estacionamiento</ion-label>
-    </ion-segment-button>
-
-    <ion-segment-button value="certificaciones">
-      <ion-label>Pago</ion-label>
-    </ion-segment-button>
-
-    <!-- <ion-segment-button value="usuariosfirebase">
-      <ion-label>Añadir Usuario</ion-label>
-    </ion-segment-button> -->
-
-
-    <!--Segmento ApiRest-->
-    <ion-segment-button value="api-rest">
-      <ion-label>API REST (.Json)</ion-label>
-    </ion-segment-button>
-
-    <!--Segmento QR-->
-    <ion-segment-button value="qr-scanner">
-      <ion-label>Evalúanos!</ion-label>
-    </ion-segment-button>
-
-  </ion-segment>
-
-  
-  <!-- Mostrar componentes según el valor seleccionado en el segmento -->
-  <ng-container *ngIf="selectedSegment === 'mis-datos'">
-    <app-mis-datos></app-mis-datos>
-  </ng-container>
-  <ng-container *ngIf="selectedSegment === 'experiencia-laboral'">
-    <app-experiencia-laboral></app-experiencia-laboral>
-  </ng-container>
-  <ng-container *ngIf="selectedSegment === 'certificaciones'">
-    <app-certificaciones></app-certificaciones>
-  </ng-container>
-
-  <!--Usuario-->
-  <!-- <ng-container *ngIf="selectedSegment === 'usuariosfirebase'">
-    <app-usuariosfirebase></app-usuariosfirebase>
-  </ng-container> -->
-
-  <!--Api rest-->
-  <ng-container *ngIf="selectedSegment === 'api-rest'">
-    <app-api-rest></app-api-rest>
-  </ng-container>
-  <!--QR-->
-  <ng-container *ngIf="selectedSegment === 'qr-scanner'">
-    <app-qr-scanner></app-qr-scanner>
-  </ng-container>
-
-
-
-
-
-
-
-
-
 </ion-content>
-
-
-
-
-
-
