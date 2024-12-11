@@ -8,7 +8,8 @@ import { DataService } from '../servicios/api-rest.service';
   styleUrls: ['./arrendador.page.scss'],
 })
 export class ArrendadorPage implements OnInit {
-  comentarios: any[] = []; // Array para almacenar los comentarios
+  
+  estacionamientos: any[] = []; // Array para almacenar los comentarios
   
   selectedSegment: string = 'mis-datos';//Inicializa el segmento que desea mostrar primero 
 
@@ -16,8 +17,8 @@ export class ArrendadorPage implements OnInit {
 
   ngOnInit() {
     // Obtener los comentarios desde el servicio
-    this.dataService.getComentarios().subscribe((data) => {
-      this.comentarios = data; // Asignar los datos recibidos a comentarios
+    this.dataService.getEstacionamientos().subscribe((data) => {
+      this.estacionamientos = data;
     });
   }
 }

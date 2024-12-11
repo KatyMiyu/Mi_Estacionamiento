@@ -1,5 +1,10 @@
 <ion-header >
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home" style="border-radius: 5px;" color="tertiary">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title style="text-align: center;">
       JDK
     </ion-title>
@@ -27,65 +32,37 @@
   <ion-segment [(ngModel)]="selectedSegment">
 
     <ion-segment-button value="mis-datos">
-      <ion-label>Contacto</ion-label>
-    </ion-segment-button>
-
-    <ion-segment-button value="experiencia-laboral">
-      <ion-label>Estacionamiento</ion-label>
+      <ion-label>Mis datos</ion-label>
     </ion-segment-button>
 
     <ion-segment-button value="certificaciones">
-      <ion-label>Pago</ion-label>
-    </ion-segment-button>
-
-    
-
-
+      <ion-label>Cuenta de pago</ion-label>
+    </ion-segment-button>  
     <!--Segmento ApiRest-->
-    <ion-segment-button value="api-rest">
-      <ion-label>API REST (.Json)</ion-label>
-    </ion-segment-button>
-
-    <!--Segmento QR-->
-    <ion-segment-button value="qr-scanner">
-      <ion-label>Evalúanos!</ion-label>
+    <ion-segment-button value="Estacionamiento">
+      <ion-label>Mis estacionamientos</ion-label>
+    </ion-segment-button> 
+    <!--Segmento QR-->  
+    <ion-segment-button value="qr-pago">
+      <ion-label>Generar QR Pago</ion-label>
     </ion-segment-button>
 
   </ion-segment>
 
-  
   <!-- Mostrar componentes según el valor seleccionado en el segmento -->
   <ng-container *ngIf="selectedSegment === 'mis-datos'">
     <app-mis-datos></app-mis-datos>
   </ng-container>
-  <ng-container *ngIf="selectedSegment === 'experiencia-laboral'">
-    <app-experiencia-laboral></app-experiencia-laboral>
-  </ng-container>
   <ng-container *ngIf="selectedSegment === 'certificaciones'">
     <app-certificaciones></app-certificaciones>
-  </ng-container>
-
-  
-
+  </ng-container> 
   <!--Api rest-->
-  <ng-container *ngIf="selectedSegment === 'api-rest'">
-    <app-api-rest></app-api-rest>
+  <ng-container *ngIf="selectedSegment === 'Estacionamiento'">
+    <app-estacionamiento></app-estacionamiento>
   </ng-container>
   <!--QR-->
-  <ng-container *ngIf="selectedSegment === 'qr-scanner'">
-    <app-qr-scanner></app-qr-scanner>
+  <ng-container *ngIf="selectedSegment === 'qr-pago'">
+    <app-qr-pago></app-qr-pago>
   </ng-container>
 
-
-
-
-
-
-
-
-
 </ion-content>
-
-
-
-

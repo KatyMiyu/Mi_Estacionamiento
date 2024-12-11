@@ -1,23 +1,24 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
-import * as QRCode from 'qrcode';
-import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-qr-scanner',
   templateUrl: './qr-scanner.component.html',
   styleUrls: ['./qr-scanner.component.scss'],
 })
-export class QrScannerComponent  {
+export class QrScannerComponent {
   scannedData: string | null = null;
-  qrCodeData: string = '';
-  generatedQRCode: string = '';
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   async scanQrCode() {
     // Solicitar permisos y preparar el escáner
-    await BarcodeScanner.checkPermission({ force: true });
+    const permission = await BarcodeScanner.checkPermission({ force: true });
+
+    if (!permission.granted) {
+      alert('Permiso denegado para usar el escáner de QR.');
+      return;
+    }
 
     // Iniciar el escaneo del código QR
     const result = await BarcodeScanner.startScan();
@@ -26,43 +27,29 @@ export class QrScannerComponent  {
     if (result.hasContent) {
       this.scannedData = result.content; // Guardar el contenido escaneado
       console.log('Contenido escaneado:', this.scannedData);
-      // Verificar si el contenido es un enlace y redirigir
+
+      // Verificar si el contenido es un enlace
       if (this.isValidUrl(this.scannedData)) {
-        window.open(this.scannedData, '_blank');  // Abre el enlace en una nueva pestaña
+        window.open(this.scannedData, '_blank'); // Abre el enlace en una nueva pestaña
+      } else {
+        alert(`Código escaneado: ${this.scannedData}`);
       }
+    } else {
+      alert('No se detectó contenido en el QR.');
     }
   }
 
-  // Función para validar si el contenido escaneado es una URL válida
   isValidUrl(url: string): boolean {
-    const urlPattern = new RegExp('^(https?:\\/\\/)?'+ // protocolo
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // dominio
-      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // IP (v4) dirección
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // puerto y ruta
-      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // cadena de consulta
-      '(\\#[-a-z\\d_]*)?$','i'); // fragmento de anclaje
-    return !!urlPattern.test(url);
-  }
-
-  // Función para generar código QR
-  generateQRCode() {
-    QRCode.toDataURL(this.qrCodeData, { errorCorrectionLevel: 'H' })
-      .then((url: string) => {
-        this.generatedQRCode = url;
-      })
-      .catch((err: any) => {
-        console.error(err);
-      });
-  }
-
-  // Función para descargar QR en PNG
-  downloadQRCode() {
-    if (this.generatedQRCode) {
-      const link = document.createElement('a');
-      link.href = this.generatedQRCode;
-      link.download = 'QRCode.png';
-      link.click();
-    }
+    const pattern = new RegExp(
+      '^(https?:\\/\\/)?' + // Protocolo
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // Dominio
+      '((\\d{1,3}\\.){3}\\d{1,3}))' + // Dirección IP (opcional)
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // Puerto y ruta
+      '(\\?[;&a-z\\d%_.~+=-]*)?' + // Cadena de consulta
+      '(\\#[-a-z\\d_]*)?$',
+      'i'
+    );
+    return !!pattern.test(url);
   }
 }
 

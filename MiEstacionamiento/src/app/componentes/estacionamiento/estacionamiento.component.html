@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Estacionamientos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Formulario de nuevo estacionamiento -->
+  <ion-item>
+    <ion-label position="floating">Nombre del Estacionamiento</ion-label>
+    <ion-input [(ngModel)]="newEstacionamiento.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Dirección</ion-label>
+    <ion-input [(ngModel)]="newEstacionamiento.direccion"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Cantidad Disponible</ion-label>
+    <ion-input [(ngModel)]="newEstacionamiento.cantidad_disponible" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Horario</ion-label>
+    <ion-input [(ngModel)]="newEstacionamiento.horario"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Tarifa por Hora</ion-label>
+    <ion-input [(ngModel)]="newEstacionamiento.tarifa_por_hora" type="number"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="addEstacionamiento()">Agregar Estacionamiento</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let estacionamiento of estacionamientos">
+      <ion-label>
+        <h2>{{ estacionamiento.nombre }}</h2>
+        <p>Dirección: {{ estacionamiento.direccion }}</p>
+        <p>Disponibles: {{ estacionamiento.cantidad_disponible }}</p>
+        <p>Horario: {{ estacionamiento.horario }}</p>
+        <p>Tarifa: ${{ estacionamiento.tarifa_por_hora }}/hora</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="updateEstacionamiento(estacionamiento)">Editar</ion-button>
+        <ion-button color="danger" (click)="deleteEstacionamiento(estacionamiento.id)">Eliminar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

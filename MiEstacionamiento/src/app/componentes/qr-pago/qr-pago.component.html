@@ -1,0 +1,15 @@
+<ion-content style="text-align: center; padding: 20px;">
+  <ion-item>
+    <ion-label position="floating">Ingresa el enlace de pago</ion-label>
+    <ion-input [(ngModel)]="qrCodeData"></ion-input>
+  </ion-item>
+  <ion-button (click)="generateQRCode()" expand="full" color="tertiary" style="margin-top: 20px;">
+    Generar QR
+  </ion-button>
+
+  <div *ngIf="generatedQRCode" style="text-align: center; margin-top: 20px;">
+    <img [src]="generatedQRCode" alt="Generated QR Code" />
+    <ion-button fill="clear" expand="full" (click)="downloadQRCode()">Descargar QR</ion-button>
+  </div>
+</ion-content>
+

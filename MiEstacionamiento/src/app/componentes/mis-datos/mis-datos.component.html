@@ -1,3 +1,68 @@
-<ion-input label="Celular" type="text" placeholder="+569 1111 1111"></ion-input>
-<br>    
-<ion-input label="Correo" type="email" placeholder="email@domain.com"></ion-input>  
+<ion-content class="ion-padding">
+    <!-- Formulario -->
+    <form>
+      <!-- Número de celular -->
+      <ion-item>
+        <ion-label position="stacked">Celular</ion-label>
+        <ion-input
+          [(ngModel)]="datosContacto.celular"
+          name="celular"
+          type="tel"
+          placeholder="+569 1111 1111"
+        ></ion-input>
+      </ion-item>
+  
+      <!-- Correo electrónico -->
+      <ion-item>
+        <ion-label position="stacked">Correo Electrónico</ion-label>
+        <ion-input
+          [(ngModel)]="datosContacto.correo"
+          name="correo"
+          type="email"
+          placeholder="email@domain.com"
+        ></ion-input>
+      </ion-item>
+  
+      <!-- Dirección -->
+      <ion-item>
+        <ion-label position="stacked">Dirección</ion-label>
+        <ion-input
+          [(ngModel)]="datosContacto.direccion"
+          name="direccion"
+          type="text"
+          placeholder="Ingresa tu dirección"
+        ></ion-input>
+      </ion-item>
+  
+      <!-- Ciudad -->
+      <ion-item>
+        <ion-label position="stacked">Ciudad</ion-label>
+        <ion-input
+          [(ngModel)]="datosContacto.ciudad"
+          name="ciudad"
+          type="text"
+          placeholder="Ingresa tu ciudad"
+        ></ion-input>
+      </ion-item>
+  
+      <!-- Botón de guardar -->
+      <ion-button
+        expand="block"
+        color="tertiary"
+        (click)="guardarDatos()"
+        style="margin-top: 20px;"
+      >
+        Guardar datos
+      </ion-button>
+    </form>
+  
+    <!-- Muestra los datos guardados -->
+    <div *ngIf="datosGuardados" style="margin-top: 20px;">
+      <h2>Datos Guardados:</h2>
+      <p><strong>Celular:</strong> {{ datosGuardados.celular }}</p>
+      <p><strong>Correo Electrónico:</strong> {{ datosGuardados.correo }}</p>
+      <p><strong>Dirección:</strong> {{ datosGuardados.direccion }}</p>
+      <p><strong>Ciudad:</strong> {{ datosGuardados.ciudad }}</p>
+    </div>
+  </ion-content>
+  

@@ -1,33 +1,78 @@
-<h2>Datos de pago</h2>
-<form>
-  <label>Nombre de la cuenta</label>
-  <input type="text" name="nombreCuenta"> <br>
-  <br>
-  <label>Fecha de deposito</label>
-  <input type="date" name="fechaObtencion"> <br>
-  <br>
-  <label>Tarifa $/min</label>
-  <input type="number" name="tarifa">
+<ion-content class="ion-padding">
+  <!-- Formulario -->
+  <form>
+    <!-- Nombre de la cuenta -->
+    <ion-item>
+      <ion-label position="stacked">Nombre de la cuenta</ion-label>
+      <ion-input
+        [(ngModel)]="datosFormulario.nombreCuenta"
+        name="nombreCuenta"
+        placeholder="Ingresa el nombre de la cuenta"
+      ></ion-input>
+    </ion-item>
 
-  <br>
+    <!-- Banco -->
+    <ion-item>
+      <ion-label position="stacked">Banco</ion-label>
+      <ion-select
+        [(ngModel)]="datosFormulario.banco"
+        name="banco"
+        placeholder="Selecciona un banco"
+      >
+        <ion-select-option value="BCI/MACH">BCI/MACH</ion-select-option>
+        <ion-select-option value="ESTADO">Banco Estado</ion-select-option>
+        <ion-select-option value="FALABELLA">Banco Falabella</ion-select-option>
+        <ion-select-option value="CHILE">Banco Chile-Edwards-Credichile</ion-select-option>
+        <ion-select-option value="ITAU">Banco Itaú</ion-select-option>
+        <ion-select-option value="SCOTIABANK">Scotiabank</ion-select-option>
+        <ion-select-option value="MERCADOPAGO">MercadoPago</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-select label="Banco" placeholder="Banco">
-    <ion-select-option value="BCI/MACH">BCI/MACH</ion-select-option>
-    <ion-select-option value="ESTADO">BANCO ESTADO</ion-select-option>
-    <ion-select-option value="FALABELLA">BANCO FALABELLA</ion-select-option>
-    <ion-select-option value="CHILE">BANCO CHILE-EDWARDS-CREDICHILE</ion-select-option>
-    <ion-select-option value="ITAU">BANCO ITAU</ion-select-option>
-    <ion-select-option value="SCOTIABANK">SCOTIABANK</ion-select-option>
-    <ion-select-option value="MERCADOPAGO">MERCADOPAGO</ion-select-option>
-  </ion-select>
-  
-  <br>
-  
-  <ion-select label="Tipo de cuenta" placeholder="Tipo de cuenta">
-    <ion-select-option value="vista">Vista</ion-select-option>
-    <ion-select-option value="corriente">Corriente</ion-select-option>
-    <ion-select-option value="ahorro">Ahorro</ion-select-option>
-  </ion-select>
-  
-  <br>
-</form>
+    <!-- Tipo de cuenta -->
+    <ion-item>
+      <ion-label position="stacked">Tipo de cuenta</ion-label>
+      <ion-select
+        [(ngModel)]="datosFormulario.tipoCuenta"
+        name="tipoCuenta"
+        placeholder="Selecciona el tipo de cuenta"
+      >
+        <ion-select-option value="vista">Vista</ion-select-option>
+        <ion-select-option value="corriente">Corriente</ion-select-option>
+        <ion-select-option value="ahorro">Ahorro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Número de cuenta -->
+    <ion-item>
+      <ion-label position="stacked">Número de cuenta</ion-label>
+      <ion-input
+        [(ngModel)]="datosFormulario.numeroCuenta"
+        name="numeroCuenta"
+        type="text"
+        placeholder="Ingresa el número de cuenta"
+      ></ion-input>
+    </ion-item>
+
+    <!-- Botón de guardar -->
+    <ion-button
+      expand="block"
+      color="tertiary"
+      (click)="guardarDatos()"
+      style="margin-top: 20px;"
+    >
+      Guardar datos
+    </ion-button>
+  </form>
+
+  <!-- Muestra los datos guardados -->
+  <div *ngIf="datosGuardados" style="margin-top: 20px;">
+    <h2>Datos Guardados:</h2>
+    <p><strong>Nombre de la cuenta:</strong> {{ datosGuardados.nombreCuenta }}</p>
+    <p><strong>Banco:</strong> {{ datosGuardados.banco }}</p>
+    <p><strong>Tipo de cuenta:</strong> {{ datosGuardados.tipoCuenta }}</p>
+    <p><strong>Número de cuenta:</strong> {{ datosGuardados.numeroCuenta }}</p>
+  </div>
+</ion-content>
+
+

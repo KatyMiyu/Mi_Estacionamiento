@@ -2,38 +2,79 @@
   "comentarios": [
     {
       "id": 1,
-      "usuario": "Katy",
       "estacionamiento": "Centro",
       "comentario": "El lugar es seguro y siempre hay espacio disponible.",
       "calificacion": 5
     },
     {
       "id": 2,
-      "usuario": "Juan",
       "estacionamiento": "Sur",
       "comentario": "Es económico, pero el acceso es un poco complicado.",
       "calificacion": 3
     },
     {
       "id": 3,
-      "usuario": "Ana",
       "estacionamiento": "Centro",
       "comentario": "Me gusta porque está cerca de mi trabajo.",
       "calificacion": 4
     },
     {
       "id": 4,
-      "usuario": "Carlos",
       "estacionamiento": "Norte",
       "comentario": "Muy caro para el servicio que ofrecen.",
       "calificacion": 2
     },
     {
       "id": 5,
-      "usuario": "María",
       "estacionamiento": "Este",
       "comentario": "Perfecto para dejar el auto todo el día, excelente atención.",
       "calificacion": 5
     }
+  ],
+  "estacionamientos": [
+    {
+      "id": 1,
+      "nombre": "Estacionamiento Santa Lucía",
+      "direccion": "Av. Libertador Bernardo O'Higgins 330, Santiago Centro",
+      "cantidad_disponible": 50,
+      "horario": "Lunes a viernes de 7:00 a 22:00, sábado de 8:00 a 20:00",
+      "tarifa_por_hora": 1200
+    },
+    {
+      "id": 2,
+      "nombre": "Estacionamiento Bellavista",
+      "direccion": "Pío Nono 55, Providencia",
+      "cantidad_disponible": 30,
+      "horario": "Lunes a domingo, 24 horas",
+      "tarifa_por_hora": 1500
+    },
+    {
+      "id": 3,
+      "nombre": "Estacionamiento Costanera Center",
+      "direccion": "Av. Andrés Bello 2425, Providencia",
+      "cantidad_disponible": 150,
+      "horario": "Lunes a domingo, 24 horas",
+      "tarifa_por_hora": 2000
+    },
+    {
+      "id": 4,
+      "nombre": "Estacionamiento Barrio Italia",
+      "direccion": "Av. Italia 1016, Providencia",
+      "cantidad_disponible": 20,
+      "horario": "Lunes a viernes de 8:00 a 22:00, sábado y domingo de 9:00 a 21:00",
+      "tarifa_por_hora": 1300
+    },
+    {
+      "id": 5,
+      "nombre": "Estacionamiento Plaza Ñuñoa",
+      "direccion": "Jorge Washington 100, Ñuñoa",
+      "cantidad_disponible": 25,
+      "horario": "Lunes a domingo de 7:00 a 23:00",
+      "tarifa_por_hora": 1200
+    }
   ]
+
+
 }
+
+

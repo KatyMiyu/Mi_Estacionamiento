@@ -1,13 +1,71 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
-    <ion-title>arrendatario</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home" style="border-radius: 5px;" color="tertiary">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title style="text-align: center;">
+      JDK
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="/login" style="border-radius:5px; " color="tertiary"> <strong>Cerrar Sesión</strong> </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">arrendatario</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding" style="padding: 20px;">
+  <div class="container">
+    <ion-icon name="person-circle-outline" style="font-size: 100px;" class="center-icon"></ion-icon>
+  </div>
+  <div>
+    <ion-title style="text-align: center;">Hola,</ion-title>
+  </div>
+  <div>
+    <p>Bienvenido a Mi Estacionamiento.</p>
+    <p>Arrienda, busca y reserva fácilmente desde tu móvil, con pagos seguros en línea. ¡Simplifica tu experiencia de estacionamiento!</p>
+  </div>
+
+  
+
+  <!--Ingrasar componentes-->
+  <ion-segment [(ngModel)]="selectedSegment">
+
+    
+    <ion-segment-button value="experiencia-laboral">
+      <ion-label>Mis datos</ion-label>
+    </ion-segment-button>  
+    
+
+
+    <!--Segmento ApiRest-->
+    <ion-segment-button value="api-rest">
+      <ion-label>Mis comentarios</ion-label>
+    </ion-segment-button> 
+
+    <!--Segmento QR-->
+    <ion-segment-button value="qr-scanner">
+      <ion-label>Pago QR</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  
+  <!-- Mostrar componentes según el valor seleccionado en el segmento -->
+  
+  <ng-container *ngIf="selectedSegment === 'experiencia-laboral'">
+    <app-experiencia-laboral></app-experiencia-laboral>
+  </ng-container>   
+
+  <!--Api rest-->
+  <ng-container *ngIf="selectedSegment === 'api-rest'">
+    <app-api-rest></app-api-rest>
+  </ng-container>
+  <!--QR-->
+  <ng-container *ngIf="selectedSegment === 'qr-scanner'">
+    <app-qr-scanner></app-qr-scanner>
+  </ng-container>
+
+
 </ion-content>

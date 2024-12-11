@@ -1,22 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style="text-align: center;"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon></ion-title>
+    <ion-title style="text-align: center;">Escanea tu QR de Pago</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content style="text-align: center; padding: 20px;">
-  <ion-title> Evalúa el estacionamiento escanedo el QR! </ion-title>
-  <ion-button (click)="scanQrCode()" style="padding-left: 100px;" size="large" color="tertiary"><ion-icon name="qr-code-outline"></ion-icon></ion-button>
-  
-<!-- Generación de códigos QR -->
-<ion-item>
-  <ion-label position="floating">Ingresa el link de tu encueta de evaluación aquí!</ion-label>
-  <ion-input [(ngModel)]="qrCodeData"></ion-input>
-</ion-item>
-<ion-button expand="full" (click)="generateQRCode()" color="tertiary">Generar QR</ion-button>
-
-<div *ngIf="generatedQRCode" style="text-align: center;">
-  <img [src]="generatedQRCode" alt="Generated QR Code">
-  <ion-button fill="clear" style="font-family: Arial, Helvetica, sans-serif;" expand="full" (click)="downloadQRCode()" >Descargar QR AQUÍ</ion-button>
-</div>
+  <ion-title>Escanea el QR del estacionamiento para realizar tu pago</ion-title>
+  <ion-button 
+    (click)="scanQrCode()" 
+    size="large" 
+    color="tertiary" 
+    style="margin-top: 20px;"
+  >
+    <ion-icon name="qr-code-outline"></ion-icon> Escanear QR
+  </ion-button>
 </ion-content>
