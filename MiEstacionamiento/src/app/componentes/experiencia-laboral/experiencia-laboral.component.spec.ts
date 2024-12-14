@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { ExperienciaLaboralComponent } from './experiencia-laboral.component';
 
 describe('ExperienciaLaboralComponent', () => {

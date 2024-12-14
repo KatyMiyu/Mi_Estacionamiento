@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "393890463032",
+    "project_id": "appprueba-ccfb1",
+    "storage_bucket": "appprueba-ccfb1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393890463032:android:7ffac62c90ead902e115cd",
+        "android_client_info": {
+          "package_name": "com.miestacionamiento.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgvPYrRA65qHbNRmL17qS4Bd5fg2RkTk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

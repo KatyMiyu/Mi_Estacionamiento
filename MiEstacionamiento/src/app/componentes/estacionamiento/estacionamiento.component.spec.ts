@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { EstacionamientoComponent } from './estacionamiento.component';
 
 describe('EstacionamientoComponent', () => {
@@ -22,3 +21,4 @@ describe('EstacionamientoComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
